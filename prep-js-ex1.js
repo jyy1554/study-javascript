@@ -31,7 +31,7 @@ var indexOfN = indexOfD + word.length -1; // SOMETHING_ELSE 부분에 dolphin의
 console.log(indexOfD, indexOfN);
 
 
-
+//indexOf 함수 사용하지 않고 구현
 indexOfN: for (var i=0; i < sentence.length; i++) {
   if (sentence[i] != word[0]) continue;
   
