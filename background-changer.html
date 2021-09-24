@@ -20,17 +20,14 @@
     }
     .text {
       display: flex;
-      /* 세로선상 중앙정렬 */
-      align-items: center;
+      /* 가로선상 중앙정렬 */
+      justify-content: center;
     }
     h1 {
       font-size: 60px;
       font-weight: bold;
     }
     .button {
-      display: flex;
-      /* 세로선상 중앙정렬 */
-      align-items: center;
       margin-top: 5px;
     }
   </style>
@@ -51,30 +48,30 @@
   </div>
   <script>
     //값이 변경되어야하므로 const대신 let 키워드 사용
-    let hexaColorCode = '';
+    let hexColorCode = '';
     const letters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
 
-    function randomHexaCode() {
-      hexaColorCode = '#';
+    function randomHexCode() {
+      hexColorCode = '#';
 
       for (let i = 0; i < 6; i++) {
       //Math.random()은 0 이상 1 미만 난수를 생성
       //난수를 16으로 나눈 나머지를 index로 사용할 예정
-      let randomIndex = Math.floor(Math.random() * 100 % 16);
+      const randomIndex = Math.floor(Math.random() * 100 % 16);
       // +연산자는 string + 숫자여도 string을 반환
-      hexaColorCode += letters[randomIndex];
+      hexColorCode += letters[randomIndex];
     }};
 
-    console.log(hexaColorCode);
+    console.log(hexColorCode);
 
     const $btn = document.querySelector('.btn');
     const $box = document.querySelector('.box');
     const $color = document.querySelector('#color-name');
 
     $btn.addEventListener("click", function (ev) {
-      randomHexaCode();
-      $color.textContent = hexaColorCode;
-      $box.style.backgroundColor = hexaColorCode;
+      randomHexCode();
+      $color.textContent = hexColorCode;
+      $box.style.backgroundColor = hexColorCode;
     });
   </script>
 </body>
