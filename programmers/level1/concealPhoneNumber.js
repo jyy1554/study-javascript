@@ -24,4 +24,4 @@ function solution(phone_number) {
   answer += phone_number.slice(-4);
       
   return answer;
-}
+} 
