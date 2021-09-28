@@ -13,4 +13,4 @@ function solution(arr1, arr2) {
 arr[i][j]라 할 경우, i는 0부터 (arr.length-1)까지의 값을 갖고 j는 0부터 (arr[0].length-1)까지의 값을 갖는다.
 이를 이용하여 행렬의 덧셈을 하였다.
 
-*/
+*/ 
