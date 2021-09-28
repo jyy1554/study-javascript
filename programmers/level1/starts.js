@@ -30,4 +30,4 @@ process.stdin.on('data', data => {
     const answer = (stars+'\n').repeat(b);
     
     console.log(answer);
-});
+}); 
