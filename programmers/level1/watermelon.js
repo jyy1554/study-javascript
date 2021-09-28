@@ -13,4 +13,4 @@ function solution(n) {
 
 /*   < 풀이 >
 for문을 이용하여 구현하였고 i를 answer의 인덱스로 사용하였다.
-*/
+*/ 
