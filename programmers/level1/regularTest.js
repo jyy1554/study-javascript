@@ -26,4 +26,4 @@ function solution(answers) {
   }
   
   return result;
-}
+} 
