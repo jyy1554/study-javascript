@@ -14,7 +14,7 @@ function solution(s, n) {
       arr.push(s[i].charAt(n));
   }
   arr.sort(); //arr를 올림차순으로 정렬
-  
+
   
   while (s.length) {
       //arr 요소 순서에 맞춰 s 단어들을 배치
