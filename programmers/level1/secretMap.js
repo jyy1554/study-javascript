@@ -2,6 +2,37 @@
 
 // 비밀지도
 
+/* 추천하는 풀이 */
+function solution(n, arr1, arr2) {
+    // 어느 하나라도 벽인 부분은 전체 지도에서도 벽("#", 1)
+    let answer = [];
+    
+    for(let i=0; i < n; i++) {
+        let binary1 = '';
+        let binary2 = '';
+        let binary = '';
+        
+        binary1 = addZero(n, decimalToBinary(arr1[i]));
+        binary2 = addZero(n, decimalToBinary(arr2[i]));
+          
+        for(let j=0; j < n; j++) {
+            if(binary1.charAt(j) != '0' || binary2.charAt(j) != '0') binary += '#';
+            else binary += ' ';
+        }
+        
+        answer.push(binary);
+    }
+    
+    return answer;
+  }
+  
+  const decimalToBinary = s => s.toString(2); // 2진수로 바꿔주는 메소드
+  const addZero = (n, s) => '0'.repeat(n - s.length) + s;
+  
+
+
+/* 나의 첫 풀이 */
+
 function solution(n, arr1, arr2) {
   // 어느 하나라도 벽인 부분은 전체 지도에서도 벽("#", 1)
   var answer = [];
@@ -40,7 +71,7 @@ function solution(n, arr1, arr2) {
 
 
 
-/* 위 풀이를 다듬은 풀이 */
+/* 나의 두번째 풀이 */
 
 function n_binary(arr, n) {
   return arr.map(v => { 
