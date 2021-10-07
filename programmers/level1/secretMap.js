@@ -37,3 +37,42 @@ function solution(n, arr1, arr2) {
   
   return answer;
 }
+
+
+
+/* 위 풀이를 다듬은 풀이 */
+
+function n_binary(arr, n) {
+  return arr.map(v => { 
+      let binary = '';
+      while (v) {
+          binary = v % 2 + binary;    // 2진수의 뒷자리부터 계산되므로
+          v = Math.floor(v / 2);  // 몫만 반환
+      }
+      
+      while (binary.length != n) {
+          binary = '0' + binary;
+      }
+      return binary;
+  });
+}
+
+function solution(n, arr1, arr2) {
+  // 어느 하나라도 벽인 부분은 전체 지도에서도 벽("#", 1)
+  let answer = [];
+  
+  arr1 = n_binary(arr1, n);
+  arr2 = n_binary(arr2, n);
+  
+  
+  answer = arr1.map((v, i) => {
+      let binary = '';
+      for(let j=0; j < n; j++) {
+          binary += +v.charAt(j) || +arr2[i].charAt(j) ? '#' : ' ';
+      }
+      return binary;
+  });
+
+  
+  return answer;
+}
