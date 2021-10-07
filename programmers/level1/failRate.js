@@ -28,3 +28,23 @@ function solution(N, stages) {
   //a,b 정렬은 실패율을 기준으로 오름차순 정렬
   return answer.sort((a,b) => fail[b-1] - fail[a-1]);
 }
+
+
+// 다른 풀이 : reduce, 객체 활용 (그러나, 테스트 시간이 오래걸림..)
+
+function solution(N, stages) {
+  var answer = [];
+  
+  for(let i=0; i < N; i++) {
+      const stage = i + 1;
+      const unclearPlayers = stages.reduce((acc, cur) => acc + (cur == stage), 0);
+      const players = stages.reduce((acc, cur) => acc + (cur >= stage), 0);
+      
+      if(unclearPlayers == 0) answer.push({ 'stage': stage, 'failRate': 0});
+      else answer.push({ 'stage': stage, 'failRate': (unclearPlayers / players) });
+  }
+
+  answer.sort((a,b) => b.failRate - a.failRate);
+  
+  return answer.map(item => item.stage);
+}
