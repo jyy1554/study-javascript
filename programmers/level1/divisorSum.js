@@ -3,6 +3,23 @@
 // 약수의 개수와 덧셈
 
 
+/* 좋은 풀이 */
+function solution(left, right) {
+  var answer = 0;
+  
+  //약수의 개수가 홀수인 경우, 루트를 씌웠을 때 정수인 경우
+  for (let i = left; i <= right; i++) {
+      if (Math.sqrt(i) == Math.floor(Math.sqrt(i))) answer += -i;
+      else answer += i;
+  }
+  
+  return answer;
+}
+
+
+
+/* 나의 첫 풀이 */
+
 function solution(left, right) {
   var answer = 0;
   
