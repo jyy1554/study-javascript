@@ -3,6 +3,8 @@
 // 신규 아이디 추천
 
 
+/* 나의 첫번째 풀이 */
+
 function solution(new_id) {
   let recommend = '';
   
@@ -55,6 +57,37 @@ function solution(new_id) {
   if(recommend.length < 3) recommend += recommend.charAt(recommend.length-1).repeat(3-recommend.length);
   console.log('7단계: '+ recommend);
   
+  
+  return recommend;
+}
+
+
+/* 나의 두번째 풀이 */
+function solution(new_id) {
+  let recommend = '';
+  
+  //1단계
+  new_id = new_id.toLowerCase();
+  
+  //2,3단계
+  for(let i=0; i < new_id.length; i++) {
+      const ch = new_id[i];
+      if('0123456789abcdefghijklmnopqrstuvwxyz-_.'.indexOf(ch) == -1) continue;
+      if(recommend[recommend.length-1] == '.' && ch == '.') continue;
+      recommend += ch;
+  }
+
+  //4단계
+  if(recommend.charAt(0) == '.') recommend = recommend.substring(1,recommend.length);
+  if(recommend.charAt(recommend.length-1) == '.') recommend = recommend.substring(0,recommend.length-1);
+  //5단계
+  if(recommend.length == 0) recommend = 'a'; 
+  //6단계
+  recommend = recommend.substring(0,15);
+  if(recommend[recommend.length-1] == '.') recommend = recommend.substring(0,recommend.length-1);
+  //7단계
+  if(recommend.length < 3) recommend += recommend[recommend.length-1].repeat(3-recommend.length);
+
   
   return recommend;
 }
