@@ -1,0 +1,20 @@
+// https://programmers.co.kr/learn/courses/30/lessons/77884
+
+// 약수의 개수와 덧셈
+
+
+function solution(left, right) {
+  var answer = 0;
+  
+  //각 수 약수의 개수 구하기 => 1부터 나눠서 나누어떨어지면 배열에 추가
+  //개수가 짝수이면 더하고, 홀수이면 빼기
+  for (let i = left; i <= right; i++) {
+      const arr = [];
+      for (let j=1; j <= i; j++) {
+          if(i % j == 0) arr.push(j);
+      }
+      answer += arr.length % 2 == 0 ? i : -i;
+  }
+  
+  return answer;
+}
