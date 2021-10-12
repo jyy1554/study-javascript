@@ -50,3 +50,8 @@ body {
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0, 2.35, 0.58, 1); /* 시계와 같은 효과를 주기 위해. 개발자 도구에서 ease-in-out 값 수정*/
 }
+
+/* clock hand가 12시쪽으로 도달하면 clock hand가 튀는 현상이 생겨 이를 막아주기 위함*/
+.bypass {
+  transition: all 0s;
+}
