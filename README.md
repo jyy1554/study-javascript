@@ -1,4 +1,4 @@
-# JS-30-DAY-2 : CSS + JS Clock
+# JS-30-DAY-2 : JS + CSS Clock
 
 이 프로젝트는 CSS와 JavaScript를 이용해서 시계를 구현한다. 
 
