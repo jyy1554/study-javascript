@@ -26,3 +26,19 @@ function solution(n) {
   
   return n;
 }
+
+
+/* N진법으로 바꿔주는 메소드를 사용할 경우 */
+function solution(n) {
+    const count = (arr) => arr.split('').reduce((acc, cur) => acc += +cur,0);
+    const bi_origin = n.toString(2);
+    const n_num = count(bi_origin);
+    
+    do {
+        n++;
+        const bi_next = n.toString(2);
+        if (n_num == count(bi_next)) break;
+    } while(n)
+    
+    return n;
+}
