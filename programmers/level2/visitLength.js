@@ -7,8 +7,6 @@ function solution(dirs) {
   let new_pos = [0,0];
   const coors = [];
   
-  coors.push(pos+""); //우선, 시작점 (0,0) 넣기
-  
   // 최대 5, 최소 -5
   for (let i=0; i < dirs.length; i++) {
       if (dirs[i] == "U") {
@@ -23,13 +21,15 @@ function solution(dirs) {
       else {  //"L"일때
           new_pos[0] = pos[0] <= -5 ? -5 : (pos[0] - 1);
       }
-       
-      if (!coors.includes(new_pos+"")) coors.push(new_pos+"");
-      else if (Math.abs(coors.indexOf(pos+"") - coors.indexOf(new_pos+"")) <= 1); // pass
-      else coors.push(new_pos+"");
       
+      if (pos[0] == new_pos[0] && pos[1] == new_pos[1]) {} //pass
+      else if (!coors.includes(pos+","+new_pos)) {
+          coors.push(pos + "," + new_pos);
+          coors.push(new_pos + "," + pos);
+      }
+
       new_pos.filter((v,i) => pos[i] = v);    // 현재 좌표 바꾸기
   }
   
-  return coors.length - 1;    //길이이므로 (0,0) 제외
+  return coors.length / 2;
 }
