@@ -3,7 +3,10 @@
 // n^2 배열 자르기
 
 function solution(n, left, right) {
+  let row = [];
   let answer = [];
+  let index = 0;
+  let v = 0;
   
   // n = 4
   // [1 2 3 4]
@@ -11,27 +14,25 @@ function solution(n, left, right) {
   // [3 3 3 4]     = [2 2 3 4] + [1 1 0 0]
   // [4 4 4 4]     = [3 3 3 4] + [1 1 1 0]
   
-  for (let i=0; i < n; i++) {
-      if (i == 0) {
-          for (let j=1; j <= n; j++) {
-              answer.push(j);
-              
-              if (answer.length > right) break;
-          }
+  while (index <= right) {
+      // 첫행
+      if (index < n) {
+          v = index + 1;
+          row.push(v);
       }
+      // 몇행 : Math.floor(index / n)  해당행의 몇번째 요소 : index % n 
+      // 해당요소는 다음행에서 index % n < Math.floor면 1을 더함
       else {
-          const arr = answer.slice(answer.length-n, answer.length);
-          for (let j=0; j < n; j++) {
-              if (j < i) answer.push(arr[j] + 1);
-              else answer.push(arr[j]);
-              
-              if (answer.length > right) break;
-          }
+          const elem = index % n;
+          v = row [elem] + (elem < Math.floor(index / n));
+          row[elem] = v;
       }
       
-      if (answer.length > right) break;
+      // left와 right 사이에 있는 요소인 경우
+      if (index >= left && index <= right) answer.push(v);
+      
+      index++;
   }
-
-  return answer.slice(left, right+1);
+  
+  return answer;
 }
-
