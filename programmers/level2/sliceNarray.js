@@ -11,11 +11,12 @@ function solution(n, left, right) {
   // [3 3 3 4]     = [2 2 3 4] + [1 1 0 0]
   // [4 4 4 4]     = [3 3 3 4] + [1 1 1 0]
   
-  
   for (let i=0; i < n; i++) {
       if (i == 0) {
           for (let j=1; j <= n; j++) {
               answer.push(j);
+              
+              if (answer.length > right) break;
           }
       }
       else {
@@ -23,6 +24,8 @@ function solution(n, left, right) {
           for (let j=0; j < n; j++) {
               if (j < i) answer.push(arr[j] + 1);
               else answer.push(arr[j]);
+              
+              if (answer.length > right) break;
           }
       }
       
