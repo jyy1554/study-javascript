@@ -16,3 +16,18 @@ function solution(citations) {
   
   return h;
 }
+
+
+/* 개선된 풀이 */
+function solution(citations) {
+  let h = 0;
+  
+  // 내림차순
+  citations.sort((a,b) => b-a);
+  
+  while (h + 1 <= citations[h]) {
+      h++;
+  }
+  
+  return h;
+}
