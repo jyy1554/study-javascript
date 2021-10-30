@@ -1,4 +1,4 @@
-// 클릭할때마다 class name을 add하거나 없애야됨
+// 클릭할때마다 class name을 add해야됨
 
 const panels = document.querySelectorAll('.panel');
 
