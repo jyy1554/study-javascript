@@ -8,7 +8,7 @@ function solution(s) {
   
   // n : 이진변환 횟수,   z : 제거된 0의 개수
   while (num != '1') {
-      const new_num = s.split("").filter(v => +v != 0).join("");
+      const new_num = num.split("").filter(v => +v != 0).join("");
       answer[0]++;
       answer[1] += num.length - new_num.length;
       
