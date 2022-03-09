@@ -2,22 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import { select, line, curveCardinal } from 'd3';
 
 
-function Circle() {
+function AxesAndScales() {
   const [data, setData] = useState([25, 30, 45, 60, 20, 65, 75]);
   const svgRef = useRef();
 
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
-
-    // generates the "d" attribute of a path element
     const myLine = line()
       .x((value, index) => index * 50)
       .y(value => 150 - value)
       .curve(curveCardinal); 
 
-    // renders path element, and attaches
-    // the "d" attribute from line generator above
     svg
       .selectAll("path")
       .data([data])
@@ -43,4 +39,4 @@ function Circle() {
   );
 }
 
-export default Circle;
+export default AxesAndScales;
