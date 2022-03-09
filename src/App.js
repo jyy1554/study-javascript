@@ -1,12 +1,12 @@
 import React from 'react';
-import AxesAndScales from './components/AxesAndScales';
+import AnimatedBar from './components/AnimatedBar';
 import './App.css';
 
 
 function App() {
   return (
     <React.Fragment>
-      <AxesAndScales />
+      <AnimatedBar />
     </React.Fragment>
   );
 }
