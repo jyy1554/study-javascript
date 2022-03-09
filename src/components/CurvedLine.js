@@ -12,7 +12,7 @@ function Circle() {
     const myLine = line()
       .x((value, index) => index * 50)
       .y(value => 150 - value)
-      .curve(curveCardinal);
+      .curve(curveCardinal); 
 
     svg
       .selectAll("path")
