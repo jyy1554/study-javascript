@@ -1,12 +1,12 @@
 import React from 'react';
-import Circle from './components/Circle';
+import AxesAndScales from './components/AxesAndScales';
 import './App.css';
 
 
 function App() {
   return (
     <React.Fragment>
-      <Circle />
+      <AxesAndScales />
     </React.Fragment>
   );
 }
