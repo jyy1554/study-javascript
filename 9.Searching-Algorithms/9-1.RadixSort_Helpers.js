@@ -19,6 +19,7 @@ function digitCount(num) {
 
 console.log(mostDigits([1234, 1, 43, 256]));
 
+//nums 배열 중 가장 긴 숫자가 몇자리인지 반환
 function mostDigits(nums) {
     let maxDigits = 0;
     for (let num of nums) {
