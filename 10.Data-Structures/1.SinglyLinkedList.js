@@ -83,6 +83,7 @@ class SinglyLinkedList {
         }
         return current;
     }
+    //Changing the value of a node base on its position in the Linked List
     set(index, val) {
         let targetNode = this.get(index);
         if (targetNode) {
@@ -90,6 +91,20 @@ class SinglyLinkedList {
             return true;
         }
         return false;
+    }
+    //Adding a node to the Linked List at a specific position
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val); //boolean값 return위해 !!붙여줌
+        if (index === 0) return !!this.unshift(val);
+
+        let newNode = new Node(val);
+        let preNode = this.get(index - 1);
+        let temp = preNode.next;
+        preNode.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
     }
 }
 
