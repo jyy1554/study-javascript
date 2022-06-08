@@ -150,4 +150,30 @@ class DoublyLinkedList {
 
     return true;
   }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    }
+
+    if (index === 0) {
+      return this.shift();
+    }
+
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+
+    const removedNode = this.get(index);
+    const beforeNode = removedNode.prev;
+    const afterNode = removedNode.next;
+
+    beforeNode.next = afterNode;
+    afterNode.prev = beforeNode;
+    removedNode.prev = null;
+    removedNode.next = null;
+    this.length--; //shift, pop에서는 알아서 length - 1 해주므로 신경쓰지 않아도됨. 요거 놓치기 쉬운듯 ㅜㅜ
+
+    return removedNode;
+  }
 }
