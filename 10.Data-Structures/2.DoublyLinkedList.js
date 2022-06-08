@@ -112,4 +112,16 @@ class DoublyLinkedList {
 
     return currentNode;
   }
+
+  //replacing the value of a node
+  set(index, val) {
+    const foundNode = this.get(index);
+
+    if (foundNode !== null) {
+      foundNode.val = val;
+      return true;
+    }
+
+    return false;
+  }
 }
