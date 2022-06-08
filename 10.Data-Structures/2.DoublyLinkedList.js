@@ -124,4 +124,30 @@ class DoublyLinkedList {
 
     return false;
   }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+
+    if (index === 0) {
+      return !!this.unshift(val); //boolean으로 반환
+    }
+
+    if (index === this.length) {
+      return !!this.push(val);
+    }
+
+    const insertedNode = new Node(val);
+    const beforeNode = this.get(index - 1); //신박
+    const afterNode = this.get(index);
+
+    insertedNode.prev = beforeNode;
+    beforeNode.next = insertedNode;
+    insertedNode.next = afterNode;
+    afterNode.prev = insertedNode;
+    this.length++; //계속 까먹음
+
+    return true;
+  }
 }
