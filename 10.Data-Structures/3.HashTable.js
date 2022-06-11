@@ -41,11 +41,46 @@ class HashTable {
 
     return undefined;
   }
+
+  values() {
+    const valuesArr = [];
+
+    for (const arrayGroup of this.keyMap) {
+      if (arrayGroup) {
+        for (const arr of arrayGroup) {
+          if (!valuesArr.includes(arr[1])) {
+            valuesArr.push(arr[1]);
+          }
+        }
+      }
+    }
+
+    return valuesArr;
+  }
+
+  keys() {
+    const keysArr = [];
+
+    for (const arrayGroup of this.keyMap) {
+      if (arrayGroup) {
+        for (const arr of arrayGroup) {
+          if (!keysArr.includes(arr[0])) {
+            keysArr.push(arr[0]);
+          }
+        }
+      }
+    }
+
+    return keysArr;
+  }
 }
 
 const ht = new HashTable(4);
 ht.set("hello world", "goodbye!!");
 ht.set("dogs", "are cool");
 ht.set("cats", "are fine");
+ht.set("cats", "are not fine");
 ht.set("i love", "pizza");
 ht.get("cats");
+ht.keys();
+ht.values();
