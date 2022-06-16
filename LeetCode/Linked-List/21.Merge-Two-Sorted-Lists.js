@@ -11,6 +11,7 @@
  * @return {ListNode}
  */
 var mergeTwoLists = function (list1, list2) {
+  // https://www.youtube.com/watch?v=eQGn1xbt1JU
   let curNode = new ListNode();
   const dummy = curNode;
 
