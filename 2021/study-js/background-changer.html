@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap css 사용하기 위해 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <style>
+    .box {
+      display: flex;
+      /* 요소들을 위에서 아래로 정렬 */
+      flex-direction: column;
+      /* 세로선상 중앙정렬 */
+      align-items: center;
+      /* 가로선상 중앙정렬 */
+      justify-content: center;
+      width: 100%;
+      height: 600px;
+      background-color: #3474FF;
+    }
+    .text {
+      display: flex;
+      /* 가로선상 중앙정렬 */
+      justify-content: center;
+    }
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+    }
+    .button {
+      margin-top: 5px;
+    }
+  </style>
+  <title>Background Changer</title>
+</head>
+<body>
+  <div class = "box">
+    <div class = "text">
+      <h1>HEX COLOR :</h1>
+      <h1 id = "color-name">#3474FF</h1>
+    </div>
+    <div class="button">
+      <!-- bootstrap에서 가져옴 -->
+      <button type="button" class="btn btn-secondary btn-lg">
+        CLICK ME
+      </button>
+    </div>
+  </div>
+  <script>
+    //값이 변경되어야하므로 const대신 let 키워드 사용
+    let hexColorCode = '';
+    const letters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+    function randomHexCode() {
+      hexColorCode = '#';
+
+      for (let i = 0; i < 6; i++) {
+      //Math.random()은 0 이상 1 미만 난수를 생성
+      //난수를 16으로 나눈 나머지를 index로 사용할 예정
+      const randomIndex = Math.floor(Math.random() * 100 % 16);
+      // +연산자는 string + 숫자여도 string을 반환
+      hexColorCode += letters[randomIndex];
+    }};
+
+    console.log(hexColorCode);
+
+    const $btn = document.querySelector('.btn');
+    const $box = document.querySelector('.box');
+    const $color = document.querySelector('#color-name');
+
+    $btn.addEventListener("click", function (ev) {
+      randomHexCode();
+      $color.textContent = hexColorCode;
+      $box.style.backgroundColor = hexColorCode;
+    });
+  </script>
+</body>
+</html>
